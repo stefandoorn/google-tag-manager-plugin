@@ -27,13 +27,13 @@ services:
     sylius.google_tag_manager.block_event_listener.layout.before_head:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
         arguments:
-            - '@@GtmPlugin/before_head.html.twig'
+            - '@@GtmPlugin/head.html.twig'
         tags:
-            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.before_head, method: onBlockEvent }
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.head, method: onBlockEvent }
 
     sylius.google_tag_manager.block_event_listener.layout.before_body:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
         arguments:
-            - '@@GtmPlugin/before_body.html.twig'
+            - '@@GtmPlugin/body.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.before_body, method: onBlockEvent }

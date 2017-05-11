@@ -5,8 +5,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.1",
-        "sylius/sylius": "^1.0.0@beta",
-        "xynnn/google-tag-manager-bundle": "dev-master"
+        "sylius/sylius": "dev-master",
+        "xynnn/google-tag-manager-bundle": "^2.1"
     },
     "require-dev": {
         "behat/behat": "^3.3",
