@@ -17,7 +17,7 @@ class EnvironmentListenerTest extends \PHPUnit_Framework_TestCase
     public function testEnvironmentIsAddedToGtmObject()
     {
         $gtm = new GoogleTagManager(true, 'id1234');
-        $listener = new EnvironmentListener(true, $gtm, 'test_env');
+        $listener = new EnvironmentListener($gtm, 'test_env');
         $mock = $this->getMockBuilder(GetResponseEvent::class)->disableOriginalConstructor()->getMock();
         $listener->onKernelRequest($mock);
 
