@@ -26,21 +26,14 @@ class AddRouteListener
     private $request;
 
     /**
-     * @var bool
-     */
-    private $enabled;
-
-    /**
      * AddRouteListener constructor.
-     * @param bool $enabled
      * @param GoogleTagManagerInterface $googleTagManager
      * @param RequestStack $request
      */
-    public function __construct(bool $enabled, GoogleTagManagerInterface $googleTagManager, RequestStack $request)
+    public function __construct(GoogleTagManagerInterface $googleTagManager, RequestStack $request)
     {
         $this->googleTagManager = $googleTagManager;
         $this->request = $request;
-        $this->enabled = $enabled;
     }
 
     /**
@@ -48,11 +41,6 @@ class AddRouteListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        if (!$this->enabled) {
-            return;
-        }
-
-        // Add route
         $this->googleTagManager->addData('route', $this->request->getCurrentRequest()->get('_route'));
     }
 }

@@ -1,22 +1,4 @@
 services:
-    sylius.google_tag_manager.listener.environment:
-        class: GtmPlugin\EventListener\EnvironmentListener
-        arguments:
-            - "%gtm.features.environment%"
-            - "@google_tag_manager"
-            - "%kernel.environment%"
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
-
-    sylius.google_tag_manager.listener.route:
-        class: GtmPlugin\EventListener\AddRouteListener
-        arguments:
-            - "%gtm.features.route%"
-            - "@google_tag_manager"
-            - "@request_stack"
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
-
     sylius.google_tag_manager.block_event_listener.layout.javascripts:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
         arguments:

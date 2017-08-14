@@ -1,0 +1,8 @@
+services:
+    sylius.google_tag_manager.listener.route:
+        class: GtmPlugin\EventListener\AddRouteListener
+        arguments:
+            - "@google_tag_manager"
+            - "@request_stack"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

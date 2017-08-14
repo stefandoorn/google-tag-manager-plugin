@@ -1,0 +1,8 @@
+services:
+    sylius.google_tag_manager.listener.environment:
+        class: GtmPlugin\EventListener\EnvironmentListener
+        arguments:
+            - "@google_tag_manager"
+            - "%kernel.environment%"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

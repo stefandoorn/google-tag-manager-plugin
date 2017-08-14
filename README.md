@@ -24,12 +24,6 @@ new GtmPlugin\GtmPlugin(),
 
 ### 4. Adjust configurations
 
-Add to `app/config/config.yml`:
-
-```yml
-    - { resource: "@GtmPlugin/Resources/config/services.yml" }
-```
-
 Required output to your HTML (head, body & footer) are done through events. Make sure the following 'sonata_block_render_events' are present in your views:
 
 * `sylius.shop.layout.javascripts`
@@ -54,6 +48,7 @@ bin/console sylius:theme:assets:install
 
 * `environment`: Send Symfony/Sylius environment to GTM
 * `route`: Send Symfony/Sylius route to GTM
+* `context`: Send Sylius context information to GTM (currency, locale, channel)
 
 ## Usage
 

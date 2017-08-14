@@ -24,21 +24,14 @@ class EnvironmentListener
     private $environment;
 
     /**
-     * @var bool
-     */
-    private $enabled;
-
-    /**
      * EnvironmentListener constructor.
-     * @param bool $enabled
      * @param GoogleTagManagerInterface $googleTagManager
      * @param string $environment
      */
-    public function __construct(bool $enabled, GoogleTagManagerInterface $googleTagManager, string $environment)
+    public function __construct(GoogleTagManagerInterface $googleTagManager, string $environment)
     {
         $this->googleTagManager = $googleTagManager;
         $this->environment = $environment;
-        $this->enabled = $enabled;
     }
 
     /**
@@ -46,11 +39,6 @@ class EnvironmentListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        if (!$this->enabled) {
-            return;
-        }
-
-        // Add environment
         $this->googleTagManager->addData('env', $this->environment);
     }
 }

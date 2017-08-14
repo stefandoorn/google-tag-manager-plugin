@@ -26,6 +26,7 @@ final class Configuration implements ConfigurationInterface
                     ->children()
                         ->booleanNode('environment')->defaultTrue()->end()
                         ->booleanNode('route')->defaultTrue()->end()
+                        ->booleanNode('context')->defaultTrue()->end()
                     ->end()
                 ->end()
             ->end()

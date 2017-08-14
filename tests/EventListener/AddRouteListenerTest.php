@@ -23,25 +23,11 @@ class AddRouteListenerTest extends \PHPUnit_Framework_TestCase
         $requestStack->push($request);
 
         $gtm = new GoogleTagManager(true, 'id1234');
-        $listener = new AddRouteListener(true, $gtm, $requestStack);
+        $listener = new AddRouteListener($gtm, $requestStack);
         $mock = $this->getMockBuilder(GetResponseEvent::class)->disableOriginalConstructor()->getMock();
         $listener->onKernelRequest($mock);
 
         $this->assertArrayHasKey('route', $gtm->getData());
         $this->assertSame($gtm->getData()['route'], 'test_route');
-    }
-
-    public function testAddRouteIsNotAddedToGtmObject()
-    {
-        $request = new Request(['_route' => 'test_route']);
-        $requestStack = new RequestStack();
-        $requestStack->push($request);
-
-        $gtm = new GoogleTagManager(true, 'id1234');
-        $listener = new AddRouteListener(false, $gtm, $requestStack);
-        $mock = $this->getMockBuilder(GetResponseEvent::class)->disableOriginalConstructor()->getMock();
-        $listener->onKernelRequest($mock);
-
-        $this->assertArrayNotHasKey('route', $gtm->getData());
     }
 }

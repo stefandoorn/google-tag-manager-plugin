@@ -24,14 +24,4 @@ class EnvironmentListenerTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('env', $gtm->getData());
         $this->assertSame($gtm->getData()['env'], 'test_env');
     }
-
-    public function testEnvironmentIsNotAddedToGtmObject()
-    {
-        $gtm = new GoogleTagManager(true, 'id1234');
-        $listener = new EnvironmentListener(false, $gtm, 'test_env');
-        $mock = $this->getMockBuilder(GetResponseEvent::class)->disableOriginalConstructor()->getMock();
-        $listener->onKernelRequest($mock);
-
-        $this->assertArrayNotHasKey('env', $gtm->getData());
-    }
 }
