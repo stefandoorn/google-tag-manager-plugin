@@ -25,7 +25,7 @@ final class GtmExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
-        foreach($config['features'] as $feature => $setting) {
+        foreach ($config['features'] as $feature => $setting) {
             $parameter = sprintf('gtm.features.%s', $feature);
 
             $container->setParameter($parameter, $setting);

@@ -6,7 +6,6 @@ use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 /**
@@ -16,7 +15,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 class ContextListener
 {
     /**
-     * @var GoogleTagManager
+     * @var GoogleTagManagerInterface
      */
     private $googleTagManager;
 
@@ -36,9 +35,11 @@ class ContextListener
     private $currencyContext;
 
     /**
-     * EnvironmentListener constructor.
+     * ContextListener constructor.
      * @param GoogleTagManagerInterface $googleTagManager
-     * @param string $environment
+     * @param ChannelContextInterface $channelContext
+     * @param LocaleContextInterface $localeContext
+     * @param CurrencyContextInterface $currencyContext
      */
     public function __construct(
         GoogleTagManagerInterface $googleTagManager,

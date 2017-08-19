@@ -2,10 +2,8 @@
 
 namespace GtmPlugin\EventListener;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 /**
@@ -16,7 +14,7 @@ class AddRouteListener
 {
 
     /**
-     * @var GoogleTagManager
+     * @var GoogleTagManagerInterface
      */
     private $googleTagManager;
 

@@ -3,7 +3,6 @@
 namespace GtmPlugin\EventListener;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 /**
@@ -14,7 +13,7 @@ class EnvironmentListener
 {
 
     /**
-     * @var GoogleTagManager
+     * @var GoogleTagManagerInterface
      */
     private $googleTagManager;
 
