@@ -39,6 +39,6 @@ class AddRouteListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        $this->googleTagManager->addData('route', $this->request->getCurrentRequest()->get('_route'));
+        $this->googleTagManager->setData('route', $this->request->getCurrentRequest()->get('_route'));
     }
 }

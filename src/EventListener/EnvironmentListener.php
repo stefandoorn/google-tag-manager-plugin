@@ -38,6 +38,6 @@ class EnvironmentListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        $this->googleTagManager->addData('env', $this->environment);
+        $this->googleTagManager->setData('env', $this->environment);
     }
 }

@@ -58,13 +58,13 @@ class ContextListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        $this->googleTagManager->addData('channel', [
+        $this->googleTagManager->setData('channel', [
             'code' => $this->channelContext->getChannel()->getCode(),
             'name' => $this->channelContext->getChannel()->getName(),
         ]);
 
-        $this->googleTagManager->addData('locale', $this->localeContext->getLocaleCode());
+        $this->googleTagManager->setData('locale', $this->localeContext->getLocaleCode());
 
-        $this->googleTagManager->addData('currency', $this->currencyContext->getCurrencyCode());
+        $this->googleTagManager->setData('currency', $this->currencyContext->getCurrencyCode());
     }
 }
