@@ -27,8 +27,9 @@ new GtmPlugin\GtmPlugin(),
 Required output to your HTML (head, body & footer) are done through events. Make sure the following 'sonata_block_render_events' are present in your views:
 
 * `sylius.shop.layout.javascripts`
-* `sylius.shop.layout.before_head`
+* `sylius.shop.layout.head`
 * `sylius.shop.layout.before_body`
+* `sylius.shop.layout.after_body`
 
 And configure the features you would like to use/not. Find a base configuration reference by running:
 
@@ -58,3 +59,5 @@ bin/console sylius:theme:assets:install
     var event = new GaEvent('category');
     event.register(action, label, value);
 ```
+
+Make sure also to listen for this specific event in GTM.
