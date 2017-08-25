@@ -19,3 +19,10 @@ services:
             - '@@GtmPlugin/body.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.before_body, method: onBlockEvent }
+
+    sylius.google_tag_manager.block_event_listener.layout.after_body:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@GtmPlugin/after_body.html.twig'
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.after_body, method: onBlockEvent }
