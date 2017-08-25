@@ -56,8 +56,8 @@ bin/console sylius:theme:assets:install
 ### Register events from JS
  
 ```javascript
-    var event = new GaEvent('category');
-    event.register(action, label, value);
+var event = new GaEvent('category');
+event.register(action, label, value);
 ```
 
 Make sure also to listen for this specific event in GTM.
