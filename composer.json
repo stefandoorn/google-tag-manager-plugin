@@ -36,5 +36,8 @@
         "psr-4": {
             "Tests\\GtmPlugin\\": "tests/"
         }
+    },
+    "suggest": {
+        "stefandoorn/google-tag-manager-enhanced-ecommerce-plugin": "Integrate Sylius with Google Analytics Enhanced Ecommerce"
     }
 }

@@ -4,6 +4,11 @@
 
 Google Tag Manager plugin for Sylius eCommerce Platform
 
+## Related plugins
+
+* [Enhanced Ecommerce plugin](https://github.com/stefandoorn/google-tag-manager-enhanced-ecommerce-plugin): allows you a smooth integration with
+  Google Analytics Enhanced Ecommerce.
+
 ## Installation
 
 ### 1. Composer
