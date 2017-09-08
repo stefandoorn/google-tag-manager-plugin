@@ -59,11 +59,6 @@ class ContextListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        // Only run on master request
-        if (!$event->isMasterRequest()) {
-            return;
-        }
-
         try {
             $channel = $this->channelContext->getChannel();
 

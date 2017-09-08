@@ -30,7 +30,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
         $channel->setCode('channelCode');
         $channel->setName('channelName');
         $channelContext = $this->getMockBuilder(ChannelContextInterface::class)->getMock();
-        $channelContext->expects($this->exactly(2))->method('getChannel')->willReturn($channel);
+        $channelContext->expects($this->once())->method('getChannel')->willReturn($channel);
 
         $gtm = new GoogleTagManager(true, 'id1234');
         $listener = new ContextListener(
