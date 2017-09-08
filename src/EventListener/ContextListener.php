@@ -3,6 +3,7 @@
 namespace GtmPlugin\EventListener;
 
 use Sylius\Component\Channel\Context\ChannelContextInterface;
+use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -58,13 +59,22 @@ class ContextListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        $this->googleTagManager->setData('channel', [
-            'code' => $this->channelContext->getChannel()->getCode(),
-            'name' => $this->channelContext->getChannel()->getName(),
-        ]);
+        // Only run on master request
+        if (!$event->isMasterRequest()) {
+            return;
+        }
 
-        $this->googleTagManager->setData('locale', $this->localeContext->getLocaleCode());
+        try {
+            $channel = $this->channelContext->getChannel();
 
-        $this->googleTagManager->setData('currency', $this->currencyContext->getCurrencyCode());
+            $this->googleTagManager->setData('channel', [
+                'code' => $channel->getCode(),
+                'name' => $channel->getName(),
+            ]);
+
+            $this->googleTagManager->setData('locale', $this->localeContext->getLocaleCode());
+
+            $this->googleTagManager->setData('currency', $this->currencyContext->getCurrencyCode());
+        } catch (ChannelNotFoundException $e) {}
     }
 }
