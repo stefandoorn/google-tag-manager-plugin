@@ -12,7 +12,6 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
  */
 class AddRouteListener
 {
-
     /**
      * @var GoogleTagManagerInterface
      */

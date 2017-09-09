@@ -11,7 +11,6 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
  */
 class EnvironmentListener
 {
-
     /**
      * @var GoogleTagManagerInterface
      */
