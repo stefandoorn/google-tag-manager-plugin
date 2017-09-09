@@ -12,6 +12,4 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 final class GtmPlugin extends Bundle
 {
     use SyliusPluginTrait;
-
-
 }
