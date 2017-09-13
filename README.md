@@ -15,9 +15,18 @@ Google Tag Manager plugin for Sylius eCommerce Platform
 
 `composer require stefandoorn/google-tag-manager-plugin`
 
-### 2. Follow installation instructions of required sub bundle
+### 2. Follow installation instructions of required sub bundle (https://github.com/xyNNN/GoogleTagManagerBundle)
 
-https://github.com/xyNNN/GoogleTagManagerBundle
+Add to your configuration:
+
+```yaml
+google_tag_manager:
+    enabled: true
+    id: "GTM-XXXXXX"
+    autoAppend: false
+```
+
+Make sure `autoAppend` is set to `false`. This plugin will inject the tags on the proper location using the events below.
 
 ### 3. Load bundle
 
