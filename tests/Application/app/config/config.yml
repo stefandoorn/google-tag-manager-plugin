@@ -8,8 +8,6 @@ imports:
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
 
-    - { resource: "@GtmPlugin/Resources/config/services.yml" }
-
     - { resource: "../../../../vendor/sylius/sylius/app/config/security.yml" }
 
 google_tag_manager:
