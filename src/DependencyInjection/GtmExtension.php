@@ -22,7 +22,10 @@ final class GtmExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.yml');
+
+        if ($config['inject'] === true) {
+            $loader->load('inject.yml');
+        }
 
         foreach ($config['features'] as $feature => $setting) {
             $parameter = sprintf('gtm.features.%s', $feature);

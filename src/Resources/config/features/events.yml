@@ -1,0 +1,7 @@
+services:
+    sylius.google_tag_manager.block_event_listener.layout.javascripts:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@GtmPlugin/events_javascript.html.twig'
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.javascripts, method: onBlockEvent }

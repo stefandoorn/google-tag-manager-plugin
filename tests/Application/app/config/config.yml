@@ -18,9 +18,12 @@ google_tag_manager:
     autoAppend: false
 
 gtm:
+    inject: true
     features:
         environment: true
         route: true
+        context: true
+        events: true
 
 framework:
     translator: { fallbacks: ["%locale%"] }

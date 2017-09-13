@@ -22,11 +22,13 @@ final class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->booleanNode('inject')->defaultTrue()->end()
                 ->arrayNode('features')
                     ->children()
                         ->booleanNode('environment')->defaultTrue()->end()
                         ->booleanNode('route')->defaultTrue()->end()
                         ->booleanNode('context')->defaultTrue()->end()
+                        ->booleanNode('events')->defaultTrue()->end()
                     ->end()
                 ->end()
             ->end()
