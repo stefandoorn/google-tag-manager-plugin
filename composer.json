@@ -4,7 +4,6 @@
     "description": "Google Tag Manager plugin for Sylius.",
     "license": "MIT",
     "require": {
-        "php": "^7.1",
         "sylius/sylius": "^1.0",
         "xynnn/google-tag-manager-bundle": "^2.3"
     },
