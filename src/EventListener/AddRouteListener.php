@@ -8,7 +8,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 /**
  * Class AddRouteListener
- * @package SyliusGoogleTagManagerBundle\EventListener
+ * @package GtmPlugin\EventListener
  */
 class AddRouteListener
 {

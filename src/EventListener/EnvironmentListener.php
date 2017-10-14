@@ -7,7 +7,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 /**
  * Class EnvironmentListener
- * @package SyliusGoogleTagManagerBundle\EventListener
+ * @package GtmPlugin\EventListener
  */
 class EnvironmentListener
 {

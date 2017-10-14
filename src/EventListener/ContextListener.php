@@ -11,7 +11,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 /**
  * Class ContextListener
- * @package SyliusGoogleTagManagerBundle\EventListener
+ * @package GtmPlugin\EventListener
  */
 class ContextListener
 {
@@ -70,6 +70,6 @@ class ContextListener
             $this->googleTagManager->setData('locale', $this->localeContext->getLocaleCode());
 
             $this->googleTagManager->setData('currency', $this->currencyContext->getCurrencyCode());
-        } catch (ChannelNotFoundException $e) {}
+        } catch (ChannelNotFoundException $e) {} // Channel not found, nothing should happen in here
     }
 }
