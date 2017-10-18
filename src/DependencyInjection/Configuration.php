@@ -24,6 +24,7 @@ final class Configuration implements ConfigurationInterface
             ->children()
                 ->booleanNode('inject')->defaultTrue()->end()
                 ->arrayNode('features')
+                    ->addDefaultsIfNotSet()
                     ->children()
                         ->booleanNode('environment')->defaultTrue()->end()
                         ->booleanNode('route')->defaultTrue()->end()
