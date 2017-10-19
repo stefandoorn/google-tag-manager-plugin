@@ -1,8 +1,9 @@
-# Google Tag Manager plugin for Sylius 
+# Google Tag Manager plugin for Sylius eCommerce Platform
 
-[![License](https://img.shields.io/packagist/l/stefandoorn/google-tag-manager-plugin.svg)](https://packagist.org/packages/stefandoorn/google-tag-manager-plugin) [![Version](https://img.shields.io/packagist/v/stefandoorn/google-tag-manager-plugin.svg)](https://packagist.org/packages/stefandoorn/google-tag-manager-plugin) [![Build status on Linux](https://img.shields.io/travis/stefandoorn/google-tag-manager-plugin/master.svg)](http://travis-ci.org/stefandoorn/google-tag-manager-plugin) [![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/stefandoorn/google-tag-manager-plugin.svg)](https://scrutinizer-ci.com/g/stefandoorn/google-tag-manager-plugin/) [![Code Coverage](https://scrutinizer-ci.com/g/stefandoorn/google-tag-manager-plugin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/stefandoorn/google-tag-manager-plugin/?branch=master)
-
-Google Tag Manager plugin for Sylius eCommerce Platform
+[![License](https://img.shields.io/packagist/l/stefandoorn/google-tag-manager-plugin.svg)](https://packagist.org/packages/stefandoorn/google-tag-manager-plugin)
+[![Version](https://img.shields.io/packagist/v/stefandoorn/google-tag-manager-plugin.svg)](https://packagist.org/packages/stefandoorn/google-tag-manager-plugin)
+[![Build status on Linux](https://img.shields.io/travis/stefandoorn/google-tag-manager-plugin/master.svg)](http://travis-ci.org/stefandoorn/google-tag-manager-plugin)
+[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/stefandoorn/google-tag-manager-plugin.svg)](https://scrutinizer-ci.com/g/stefandoorn/google-tag-manager-plugin/)
 
 ## Related plugins
 
