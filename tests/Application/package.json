@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "jquery": "^2.2.0",
+    "lightbox2": "^2.9.0",
+    "semantic-ui-css": "^2.2.0"
+  },
+  "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-chug": "^0.5",
     "gulp-concat": "^2.6.0",
@@ -11,10 +16,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-uglifycss": "^1.0.5",
-    "jquery": "^2.2.0",
-    "lightbox2": "^2.9.0",
     "merge-stream": "^1.0.0",
-    "semantic-ui-css": "^2.2.0",
     "yargs": "^6.4.0"
   },
   "scripts": {
