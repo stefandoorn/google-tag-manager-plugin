@@ -5,7 +5,7 @@
     "semantic-ui-css": "^2.2.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-chug": "^0.5",
     "gulp-concat": "^2.6.0",
     "gulp-debug": "^2.1.2",
