@@ -10,7 +10,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
  * Class AddRouteListener
  * @package GtmPlugin\EventListener
  */
-class AddRouteListener
+final class AddRouteListener
 {
     /**
      * @var GoogleTagManagerInterface
@@ -38,6 +38,12 @@ class AddRouteListener
      */
     public function onKernelRequest(GetResponseEvent $event): void
     {
-        $this->googleTagManager->setData('route', $this->request->getCurrentRequest()->get('_route'));
+        $request = $this->request->getCurrentRequest();
+
+        if (!$request) {
+            return;
+        }
+
+        $this->googleTagManager->setData('route', $request->get('_route'));
     }
 }

@@ -3,6 +3,7 @@
 namespace Tests\GtmPlugin\EventListener;
 
 use GtmPlugin\EventListener\EnvironmentListener;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
@@ -11,7 +12,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
  * @package Tests\GtmPlugin\EventListener
  * @covers \GtmPlugin\EventListener\EnvironmentListener
  */
-class EnvironmentListenerTest extends \PHPUnit_Framework_TestCase
+class EnvironmentListenerTest extends TestCase
 {
 
     public function testEnvironmentIsAddedToGtmObject()

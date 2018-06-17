@@ -13,7 +13,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
  * Class ContextListener
  * @package GtmPlugin\EventListener
  */
-class ContextListener
+final class ContextListener
 {
     /**
      * @var GoogleTagManagerInterface

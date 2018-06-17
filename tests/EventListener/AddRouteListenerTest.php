@@ -3,6 +3,7 @@
 namespace Tests\GtmPlugin\EventListener;
 
 use GtmPlugin\EventListener\AddRouteListener;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -13,7 +14,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
  * @package Tests\GtmPlugin\EventListener
  * @covers \GtmPlugin\EventListener\AddRouteListener
  */
-class AddRouteListenerTest extends \PHPUnit_Framework_TestCase
+class AddRouteListenerTest extends TestCase
 {
 
     public function testAddRouteIsAddedToGtmObject()
