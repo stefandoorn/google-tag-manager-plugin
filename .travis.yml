@@ -21,8 +21,10 @@ env:
     global:
         - SYLIUS_CACHE_DIR=$HOME/.sylius-cache
     matrix:
-        - DEPENDENCY_VERSIONS="sylius/sylius:1.0.* symfony/symfony:3.4.*"
-        - DEPENDENCY_VERSIONS="sylius/sylius:1.1.* symfony/symfony:3.4.*"
+       - DEPENDENCY_VERSIONS="sylius/sylius:1.2.* symfony/symfony:4.1.*"
+       - DEPENDENCY_VERSIONS="sylius/sylius:1.2.* symfony/symfony:3.4.*"
+       - DEPENDENCY_VERSIONS="sylius/sylius:1.1.* symfony/symfony:3.4.*"
+       - DEPENDENCY_VERSIONS="sylius/sylius:1.0.* symfony/symfony:3.4.*"
 
 before_install:
     - phpenv config-rm xdebug.ini
@@ -75,6 +77,7 @@ before_script:
 
 script:
     - composer validate --strict --no-check-all
+    - vendor/bin/phpstan analyse src --level max -c phpstan.neon
     - vendor/bin/phpspec run
     - vendor/bin/behat -vvv --no-interaction || vendor/bin/behat -vvv --no-interaction --rerun
     - vendor/bin/phpunit --coverage-clover build/logs/clover.xml --stderr --verbose

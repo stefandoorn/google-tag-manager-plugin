@@ -1,4 +1,9 @@
 services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+        public: false
+
     sylius.google_tag_manager.listener.route:
         class: GtmPlugin\EventListener\AddRouteListener
         arguments:

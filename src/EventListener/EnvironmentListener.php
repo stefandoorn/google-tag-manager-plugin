@@ -9,7 +9,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
  * Class EnvironmentListener
  * @package GtmPlugin\EventListener
  */
-class EnvironmentListener
+final class EnvironmentListener
 {
     /**
      * @var GoogleTagManagerInterface

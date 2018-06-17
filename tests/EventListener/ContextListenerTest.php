@@ -3,6 +3,7 @@
 namespace Tests\GtmPlugin\EventListener;
 
 use GtmPlugin\EventListener\ContextListener;
+use PHPUnit\Framework\TestCase;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;
@@ -15,7 +16,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
  * @package Tests\GtmPlugin\EventListener
  * @covers \GtmPlugin\EventListener\ContextListener
  */
-class ContextListenerTest extends \PHPUnit_Framework_TestCase
+class ContextListenerTest extends TestCase
 {
 
     public function testEnvironmentIsAddedToGtmObject()
