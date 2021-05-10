@@ -2,7 +2,7 @@
     "name": "bpolnet/google-tag-manager-plugin",
     "type": "sylius-plugin",
     "description": "Google Tag Manager plugin for Sylius.",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "license": "MIT",
     "require": {
         "sylius/sylius": "^1.0",

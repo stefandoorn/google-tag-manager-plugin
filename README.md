@@ -1,11 +1,5 @@
 # Google Tag Manager plugin for Sylius eCommerce Platform
 
-[![License](https://img.shields.io/packagist/l/stefandoorn/google-tag-manager-plugin.svg)](https://packagist.org/packages/stefandoorn/google-tag-manager-plugin)
-[![Version](https://img.shields.io/packagist/v/stefandoorn/google-tag-manager-plugin.svg)](https://packagist.org/packages/stefandoorn/google-tag-manager-plugin)
-[![Build status on Linux](https://img.shields.io/travis/stefandoorn/google-tag-manager-plugin/master.svg)](http://travis-ci.org/stefandoorn/google-tag-manager-plugin)
-[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/stefandoorn/google-tag-manager-plugin.svg)](https://scrutinizer-ci.com/g/stefandoorn/google-tag-manager-plugin/)
-[![Coverage Status](https://coveralls.io/repos/github/stefandoorn/google-tag-manager-plugin/badge.svg?branch=master)](https://coveralls.io/github/stefandoorn/google-tag-manager-plugin?branch=master)
-
 ## Related plugins
 
 * [Enhanced Ecommerce plugin](https://github.com/stefandoorn/google-tag-manager-enhanced-ecommerce-plugin): allows you a smooth integration with
@@ -15,7 +9,7 @@
 
 ### 1. Composer
 
-`composer require stefandoorn/google-tag-manager-plugin`
+`composer require bpolnet/google-tag-manager-plugin`
 
 ### 2. Load bundle
 
