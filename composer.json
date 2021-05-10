@@ -1,7 +1,8 @@
 {
-    "name": "stefandoorn/google-tag-manager-plugin",
+    "name": "bpolnet/google-tag-manager-plugin",
     "type": "sylius-plugin",
     "description": "Google Tag Manager plugin for Sylius.",
+    "version": "v1.0.0",
     "license": "MIT",
     "require": {
         "sylius/sylius": "^1.0",

@@ -2,7 +2,7 @@
 
 namespace GtmPlugin\EventListener;
 
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 /**
@@ -33,9 +33,9 @@ final class EnvironmentListener
     }
 
     /**
-     * @param GetResponseEvent $event
+     * @param RequestEvent $event
      */
-    public function onKernelRequest(GetResponseEvent $event): void
+    public function onKernelRequest(RequestEvent $event): void
     {
         $this->googleTagManager->setData('env', $this->environment);
     }
