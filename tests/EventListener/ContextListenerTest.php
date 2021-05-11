@@ -9,6 +9,7 @@ use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 /**
@@ -39,7 +40,7 @@ class ContextListenerTest extends TestCase
             $channelContext,
             $localeContext,
             $currencyContext);
-        $mock = $this->getMockBuilder(GetResponseEvent::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
         $listener->onKernelRequest($mock);
 
         $this->assertArrayHasKey('locale', $gtm->getData());

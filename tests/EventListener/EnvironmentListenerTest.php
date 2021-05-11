@@ -5,6 +5,7 @@ namespace Tests\GtmPlugin\EventListener;
 use GtmPlugin\EventListener\EnvironmentListener;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 /**
@@ -19,7 +20,7 @@ class EnvironmentListenerTest extends TestCase
     {
         $gtm = new GoogleTagManager(true, 'id1234');
         $listener = new EnvironmentListener($gtm, 'test_env');
-        $mock = $this->getMockBuilder(GetResponseEvent::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
         $listener->onKernelRequest($mock);
 
         $this->assertArrayHasKey('env', $gtm->getData());
