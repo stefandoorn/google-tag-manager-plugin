@@ -2,7 +2,6 @@
 
 namespace GtmPlugin\EventListener;
 
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
@@ -18,19 +17,12 @@ final class AddRouteListener
     private $googleTagManager;
 
     /**
-     * @var RequestStack
-     */
-    private $request;
-
-    /**
      * AddRouteListener constructor.
      * @param GoogleTagManagerInterface $googleTagManager
-     * @param RequestStack $request
      */
-    public function __construct(GoogleTagManagerInterface $googleTagManager, RequestStack $request)
+    public function __construct(GoogleTagManagerInterface $googleTagManager)
     {
         $this->googleTagManager = $googleTagManager;
-        $this->request = $request;
     }
 
     /**
@@ -38,7 +30,12 @@ final class AddRouteListener
      */
     public function onKernelRequest(RequestEvent $event): void
     {
-        $request = $this->request->getCurrentRequest();
+        // Only perform on master request
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
+        $request = $event->getRequest();
 
         if (!$request) {
             return;

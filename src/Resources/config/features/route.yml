@@ -8,6 +8,5 @@ services:
         class: GtmPlugin\EventListener\AddRouteListener
         arguments:
             - "@google_tag_manager"
-            - "@request_stack"
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
