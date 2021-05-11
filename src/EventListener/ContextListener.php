@@ -9,10 +9,6 @@ use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
-/**
- * Class ContextListener
- * @package GtmPlugin\EventListener
- */
 final class ContextListener
 {
     /**
@@ -35,13 +31,6 @@ final class ContextListener
      */
     private $currencyContext;
 
-    /**
-     * ContextListener constructor.
-     * @param GoogleTagManagerInterface $googleTagManager
-     * @param ChannelContextInterface $channelContext
-     * @param LocaleContextInterface $localeContext
-     * @param CurrencyContextInterface $currencyContext
-     */
     public function __construct(
         GoogleTagManagerInterface $googleTagManager,
         ChannelContextInterface $channelContext,
@@ -54,11 +43,12 @@ final class ContextListener
         $this->currencyContext = $currencyContext;
     }
 
-    /**
-     * @param RequestEvent $event
-     */
     public function onKernelRequest(RequestEvent $event): void
     {
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
         try {
             $channel = $this->channelContext->getChannel();
 

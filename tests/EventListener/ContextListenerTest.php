@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\GtmPlugin\EventListener;
 
 use GtmPlugin\EventListener\ContextListener;
@@ -12,12 +14,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
-/**
- * Class ContextListenerTest
- * @package Tests\GtmPlugin\EventListener
- * @covers \GtmPlugin\EventListener\ContextListener
- */
-class ContextListenerTest extends TestCase
+final class ContextListenerTest extends TestCase
 {
 
     public function testEnvironmentIsAddedToGtmObject()
@@ -41,6 +38,7 @@ class ContextListenerTest extends TestCase
             $localeContext,
             $currencyContext);
         $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
+        $mock->method('isMasterRequest')->willReturn(true);
         $listener->onKernelRequest($mock);
 
         $this->assertArrayHasKey('locale', $gtm->getData());

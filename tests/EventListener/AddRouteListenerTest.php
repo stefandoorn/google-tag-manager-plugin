@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\GtmPlugin\EventListener;
 
 use GtmPlugin\EventListener\AddRouteListener;
@@ -8,12 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
-/**
- * Class AddRouteListenerTest
- * @package Tests\GtmPlugin\EventListener
- * @covers \GtmPlugin\EventListener\AddRouteListener
- */
-class AddRouteListenerTest extends TestCase
+final class AddRouteListenerTest extends TestCase
 {
 
     public function testAddRouteIsAddedToGtmObject()
