@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "sylius/sylius": "^1.0",
-        "xynnn/google-tag-manager-bundle": "^2.3.1"
+        "xynnn/google-tag-manager-bundle": "^3.1.1"
     },
     "require-dev": {
         "behat/behat": "^3.3",
