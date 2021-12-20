@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace GtmPlugin\DependencyInjection;
 
@@ -11,9 +13,7 @@ final class GtmExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
+        $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         if ($config['inject'] === true) {
@@ -21,12 +21,12 @@ final class GtmExtension extends Extension
         }
 
         foreach ($config['features'] as $feature => $setting) {
-            $parameter = sprintf('gtm.features.%s', $feature);
+            $parameter = \sprintf('gtm.features.%s', $feature);
 
             $container->setParameter($parameter, $setting);
 
             if ($setting === true) {
-                $loader->load(sprintf('features/%s.yml', $feature));
+                $loader->load(\sprintf('features/%s.yml', $feature));
             }
         }
     }

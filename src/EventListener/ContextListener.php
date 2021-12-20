@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace GtmPlugin\EventListener;
 
@@ -11,24 +13,16 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 final class ContextListener
 {
-    /**
-     * @var GoogleTagManagerInterface
-     */
+    /** @var GoogleTagManagerInterface */
     private $googleTagManager;
 
-    /**
-     * @var ChannelContextInterface
-     */
+    /** @var ChannelContextInterface */
     private $channelContext;
 
-    /**
-     * @var LocaleContextInterface
-     */
+    /** @var LocaleContextInterface */
     private $localeContext;
 
-    /**
-     * @var CurrencyContextInterface
-     */
+    /** @var CurrencyContextInterface */
     private $currencyContext;
 
     public function __construct(
@@ -60,6 +54,7 @@ final class ContextListener
             $this->googleTagManager->setData('locale', $this->localeContext->getLocaleCode());
 
             $this->googleTagManager->setData('currency', $this->currencyContext->getCurrencyCode());
-        } catch (ChannelNotFoundException $e) {} // Channel not found, nothing should happen in here
+        } catch (ChannelNotFoundException $e) {
+        } // Channel not found, nothing should happen in here
     }
 }

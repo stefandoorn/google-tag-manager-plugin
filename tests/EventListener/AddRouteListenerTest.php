@@ -12,7 +12,6 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 final class AddRouteListenerTest extends TestCase
 {
-
     public function testAddRouteIsAddedToGtmObject()
     {
         $request = new Request(['_route' => 'test_route']);
@@ -20,7 +19,7 @@ final class AddRouteListenerTest extends TestCase
         $gtm = new GoogleTagManager(true, 'id1234');
         $listener = new AddRouteListener($gtm);
 
-        $mock = $this->getMockBuilder(  RequestEvent::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
 
         $mock
             ->expects($this->once())
