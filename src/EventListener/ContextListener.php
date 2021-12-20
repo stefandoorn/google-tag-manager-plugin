@@ -13,17 +13,13 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 final class ContextListener
 {
-    /** @var GoogleTagManagerInterface */
-    private $googleTagManager;
+    private GoogleTagManagerInterface $googleTagManager;
 
-    /** @var ChannelContextInterface */
-    private $channelContext;
+    private ChannelContextInterface $channelContext;
 
-    /** @var LocaleContextInterface */
-    private $localeContext;
+    private LocaleContextInterface $localeContext;
 
-    /** @var CurrencyContextInterface */
-    private $currencyContext;
+    private CurrencyContextInterface $currencyContext;
 
     public function __construct(
         GoogleTagManagerInterface $googleTagManager,

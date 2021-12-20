@@ -9,11 +9,9 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 final class EnvironmentListener
 {
-    /** @var GoogleTagManagerInterface */
-    private $googleTagManager;
+    private GoogleTagManagerInterface $googleTagManager;
 
-    /** @var string */
-    private $environment;
+    private string $environment;
 
     public function __construct(GoogleTagManagerInterface $googleTagManager, string $environment)
     {
