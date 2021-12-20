@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace GtmPlugin\EventListener;
 
@@ -7,9 +9,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 final class AddRouteListener
 {
-    /**
-     * @var GoogleTagManagerInterface
-     */
+    /** @var GoogleTagManagerInterface */
     private $googleTagManager;
 
     public function __construct(GoogleTagManagerInterface $googleTagManager)

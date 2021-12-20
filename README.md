@@ -83,7 +83,7 @@ bin/console sylius:theme:assets:install
 ## Usage
 
 ### Register events from JS
- 
+
 ```javascript
 var event = new GaEvent('category');
 event.register(action, label, value);

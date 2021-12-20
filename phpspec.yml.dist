@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: GtmPlugin
+        psr4_prefix: GtmPlugin

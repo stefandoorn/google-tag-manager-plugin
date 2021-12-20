@@ -10,13 +10,11 @@ use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 final class ContextListenerTest extends TestCase
 {
-
     public function testEnvironmentIsAddedToGtmObject()
     {
         $currencyContext = $this->getMockBuilder(CurrencyContextInterface::class)->getMock();
@@ -36,7 +34,8 @@ final class ContextListenerTest extends TestCase
             $gtm,
             $channelContext,
             $localeContext,
-            $currencyContext);
+            $currencyContext
+        );
         $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
         $mock->method('isMasterRequest')->willReturn(true);
         $listener->onKernelRequest($mock);

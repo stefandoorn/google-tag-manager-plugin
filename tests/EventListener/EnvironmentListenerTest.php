@@ -6,13 +6,11 @@ namespace Tests\GtmPlugin\EventListener;
 
 use GtmPlugin\EventListener\EnvironmentListener;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 final class EnvironmentListenerTest extends TestCase
 {
-
     public function testEnvironmentIsAddedToGtmObject()
     {
         $gtm = new GoogleTagManager(true, 'id1234');
