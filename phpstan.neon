@@ -3,10 +3,8 @@ parameters:
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
 
-    excludes_analyse:
-        # Makes PHPStan crash
-        - 'src/DependencyInjection/Configuration.php'
+    excludePaths:
+        - 'src/DependencyInjection/GtmExtension.php'
 
-        # Test dependencies
         - 'tests/Application/app/**.php'
         - 'tests/Application/src/**.php'
