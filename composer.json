@@ -9,7 +9,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "sylius/sylius": "~1.9.0 || ~1.10.0",
+        "sylius/sylius": "~1.9.0 || ~1.10.0 || ~1.11.0",
         "xynnn/google-tag-manager-bundle": "^3.0"
     },
     "require-dev": {
@@ -50,7 +50,11 @@
     },
     "config": {
         "sort-packages": true,
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": false,
+            "phpstan/extension-installer": false
+        }
     },
     "extra": {
         "branch-alias": {
