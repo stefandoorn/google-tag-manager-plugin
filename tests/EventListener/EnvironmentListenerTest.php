@@ -16,7 +16,7 @@ final class EnvironmentListenerTest extends TestCase
         $gtm = new GoogleTagManager(true, 'id1234');
         $listener = new EnvironmentListener($gtm, 'test_env');
         $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
-        $mock->method('isMasterRequest')->willReturn(true);
+        $mock->method('isMainRequest')->willReturn(true);
         $listener->onKernelRequest($mock);
 
         $this->assertArrayHasKey('env', $gtm->getData());

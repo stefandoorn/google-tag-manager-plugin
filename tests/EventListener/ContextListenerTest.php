@@ -37,7 +37,7 @@ final class ContextListenerTest extends TestCase
             $currencyContext
         );
         $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
-        $mock->method('isMasterRequest')->willReturn(true);
+        $mock->method('isMainRequest')->willReturn(true);
         $listener->onKernelRequest($mock);
 
         $this->assertArrayHasKey('locale', $gtm->getData());

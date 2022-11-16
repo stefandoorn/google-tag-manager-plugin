@@ -23,7 +23,7 @@ final class AddRouteListenerTest extends TestCase
 
         $mock
             ->expects($this->once())
-            ->method('isMasterRequest')
+            ->method('isMainRequest')
             ->willReturn(true);
 
         $mock
