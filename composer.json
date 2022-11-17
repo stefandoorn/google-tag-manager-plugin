@@ -51,7 +51,6 @@
         "sort-packages": true,
         "bin-dir": "bin",
         "allow-plugins": {
-            "symfony/flex": true,
             "dealerdirect/phpcodesniffer-composer-installer": false,
             "phpstan/extension-installer": false
         }
