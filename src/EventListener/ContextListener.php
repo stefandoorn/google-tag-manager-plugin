@@ -25,7 +25,7 @@ final class ContextListener
         GoogleTagManagerInterface $googleTagManager,
         ChannelContextInterface $channelContext,
         LocaleContextInterface $localeContext,
-        CurrencyContextInterface $currencyContext
+        CurrencyContextInterface $currencyContext,
     ) {
         $this->googleTagManager = $googleTagManager;
         $this->channelContext = $channelContext;
@@ -35,7 +35,7 @@ final class ContextListener
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if (!$event->isMasterRequest()) {
+        if (!$event->isMainRequest()) {
             return;
         }
 
