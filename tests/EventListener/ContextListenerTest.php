@@ -34,7 +34,7 @@ final class ContextListenerTest extends TestCase
             $gtm,
             $channelContext,
             $localeContext,
-            $currencyContext
+            $currencyContext,
         );
         $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
         $mock->method('isMainRequest')->willReturn(true);
