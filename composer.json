@@ -9,8 +9,8 @@
     ],
     "require": {
         "sylius/sylius": "^1.12",
-        "sylius/mailer-bundle": "^v2.0.0-BETA.1",
-        "xynnn/google-tag-manager-bundle": "^4.0"
+        "sylius/mailer-bundle": "^1.8 || ^v2.0.0-BETA.1",
+        "xynnn/google-tag-manager-bundle": "^3.1 || ^4.0"
     },
     "require-dev": {
         "behat/behat": "^3.6.1",
@@ -36,11 +36,11 @@
         "phpstan/phpstan-webmozart-assert": "^1.0",
         "phpunit/phpunit": "^9.5",
         "sylius-labs/coding-standard": "^4.0",
-        "symfony/browser-kit": "^6.0",
-        "symfony/debug-bundle": "^6.0",
-        "symfony/dotenv": "^6.0",
-        "symfony/intl": "^6.0",
-        "symfony/web-profiler-bundle": "^6.0",
+        "symfony/browser-kit": "^5.4 || ^6.0",
+        "symfony/debug-bundle": "^5.4 || ^6.0",
+        "symfony/dotenv": "^5.4 || ^6.0",
+        "symfony/intl": "^5.4 || ^6.0",
+        "symfony/web-profiler-bundle": "^5.4 || ^6.0",
         "vimeo/psalm": "4.23.0"
     },
     "suggest": {
