@@ -40,7 +40,7 @@
         "symfony/dotenv": "^5.4 || ^6.0",
         "symfony/intl": "^5.4 || ^6.0",
         "symfony/web-profiler-bundle": "^5.4 || ^6.0",
-        "vimeo/psalm": "4.23.0"
+        "vimeo/psalm": "5.4.0"
     },
     "suggest": {
         "stefandoorn/google-tag-manager-enhanced-ecommerce-plugin": "Integrate Sylius with Google Analytics Enhanced Ecommerce"
