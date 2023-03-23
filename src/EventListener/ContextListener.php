@@ -25,7 +25,7 @@ final class ContextListener
         GoogleTagManagerInterface $googleTagManager,
         ChannelContextInterface $channelContext,
         LocaleContextInterface $localeContext,
-        CurrencyContextInterface $currencyContext,
+        CurrencyContextInterface $currencyContext
     ) {
         $this->googleTagManager = $googleTagManager;
         $this->channelContext = $channelContext;
