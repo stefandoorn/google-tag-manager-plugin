@@ -35,8 +35,16 @@ final class ContextListener
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if (!$event->isMainRequest()) {
-            return;
+        if (method_exists($event, 'isMainRequest')) {
+            if (!$event->isMainRequest()) {
+                return;
+            }
+        }
+
+        if (method_exists($event, 'isMasterRequest')) {
+            if (!$event->isMasterRequest()) {
+                return;
+            }
         }
 
         try {
