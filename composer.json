@@ -38,7 +38,8 @@
         "bin-dir": "bin",
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": false,
-            "phpstan/extension-installer": false
+            "phpstan/extension-installer": false,
+            "symfony/thanks": true
         }
     },
     "autoload": {
