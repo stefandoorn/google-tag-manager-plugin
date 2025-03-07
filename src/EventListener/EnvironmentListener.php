@@ -10,6 +10,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 final class EnvironmentListener
 {
     public function __construct(
+        private bool $enabled,
         private GoogleTagManagerInterface $googleTagManager,
         private string $environment,
     ) {
@@ -17,6 +18,10 @@ final class EnvironmentListener
 
     public function onKernelRequest(RequestEvent $event): void
     {
+        if (!$this->enabled) {
+            return;
+        }
+
         if (!$event->isMainRequest()) {
             return;
         }

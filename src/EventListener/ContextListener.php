@@ -14,6 +14,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 final class ContextListener
 {
     public function __construct(
+        private bool $enabled,
         private GoogleTagManagerInterface $googleTagManager,
         private ChannelContextInterface $channelContext,
         private LocaleContextInterface $localeContext,
@@ -23,6 +24,10 @@ final class ContextListener
 
     public function onKernelRequest(RequestEvent $event): void
     {
+        if (!$this->enabled) {
+            return;
+        }
+
         if (!$event->isMainRequest()) {
             return;
         }

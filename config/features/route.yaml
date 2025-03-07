@@ -1,12 +1,9 @@
 services:
-    _defaults:
-        autowire: false
-        autoconfigure: false
-        public: false
 
     sylius.google_tag_manager.listener.route:
         class: GtmPlugin\EventListener\AddRouteListener
         arguments:
+            - "%gtm.features.route%"
             - "@google_tag_manager"
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

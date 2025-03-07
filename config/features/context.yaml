@@ -1,12 +1,9 @@
 services:
-    _defaults:
-        autowire: false
-        autoconfigure: false
-        public: false
 
     sylius.google_tag_manager.listener.context:
         class: GtmPlugin\EventListener\ContextListener
         arguments:
+            - "%gtm.features.context%"
             - "@google_tag_manager"
             - "@sylius.context.channel"
             - "@sylius.context.locale"
