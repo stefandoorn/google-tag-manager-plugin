@@ -35,7 +35,7 @@ final class AddRouteListenerTest extends TestCase
 
         $listener->onKernelRequest($mock);
 
-        $this->assertArrayHasKey('route', $gtm->getData());
-        $this->assertSame($gtm->getData()['route'], 'test_route');
+        self::assertArrayHasKey('route', $gtm->getData());
+        self::assertSame($gtm->getData()['route'], 'test_route');
     }
 }

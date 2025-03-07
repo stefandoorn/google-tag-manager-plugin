@@ -19,7 +19,7 @@ final class EnvironmentListenerTest extends TestCase
         $mock->method('isMainRequest')->willReturn(true);
         $listener->onKernelRequest($mock);
 
-        $this->assertArrayHasKey('env', $gtm->getData());
-        $this->assertSame($gtm->getData()['env'], 'test_env');
+        self::assertArrayHasKey('env', $gtm->getData());
+        self::assertSame($gtm->getData()['env'], 'test_env');
     }
 }

@@ -40,16 +40,16 @@ final class ContextListenerTest extends TestCase
         $mock->method('isMainRequest')->willReturn(true);
         $listener->onKernelRequest($mock);
 
-        $this->assertArrayHasKey('locale', $gtm->getData());
-        $this->assertArrayHasKey('channel', $gtm->getData());
-        $this->assertArrayHasKey('currency', $gtm->getData());
+        self::assertArrayHasKey('locale', $gtm->getData());
+        self::assertArrayHasKey('channel', $gtm->getData());
+        self::assertArrayHasKey('currency', $gtm->getData());
 
-        $this->assertArrayHasKey('code', $gtm->getData()['channel']);
-        $this->assertArrayHasKey('name', $gtm->getData()['channel']);
+        self::assertArrayHasKey('code', $gtm->getData()['channel']);
+        self::assertArrayHasKey('name', $gtm->getData()['channel']);
 
-        $this->assertSame($gtm->getData()['locale'], 'en_US');
-        $this->assertSame($gtm->getData()['currency'], 'EUR');
-        $this->assertSame($gtm->getData()['channel']['code'], 'channelCode');
-        $this->assertSame($gtm->getData()['channel']['name'], 'channelName');
+        self::assertSame($gtm->getData()['locale'], 'en_US');
+        self::assertSame($gtm->getData()['currency'], 'EUR');
+        self::assertSame($gtm->getData()['channel']['code'], 'channelCode');
+        self::assertSame($gtm->getData()['channel']['name'], 'channelName');
     }
 }
