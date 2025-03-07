@@ -20,6 +20,6 @@ final class AddRouteListener
             return;
         }
 
-        $this->googleTagManager->setData('route', $event->getRequest()->get('_route'));
+        $this->googleTagManager->setData('route', $event->getRequest()->attributes->get('_route'));
     }
 }

@@ -14,7 +14,7 @@ final class AddRouteListenerTest extends TestCase
 {
     public function testAddRouteIsAddedToGtmObject(): void
     {
-        $request = new Request(['_route' => 'test_route']);
+        $request = new Request(attributes: ['_route' => 'test_route']);
 
         $gtm = new GoogleTagManager(true, 'id1234');
         $listener = new AddRouteListener($gtm);
