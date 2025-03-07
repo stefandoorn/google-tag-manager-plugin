@@ -17,7 +17,7 @@ final class AddRouteListenerTest extends TestCase
         $request = new Request(attributes: ['_route' => 'test_route']);
 
         $gtm = new GoogleTagManager(true, 'id1234');
-        $listener = new AddRouteListener($gtm);
+        $listener = new AddRouteListener(true, $gtm);
 
         $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
 

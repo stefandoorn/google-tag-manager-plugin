@@ -31,6 +31,7 @@ final class ContextListenerTest extends TestCase
 
         $gtm = new GoogleTagManager(true, 'id1234');
         $listener = new ContextListener(
+            true,
             $gtm,
             $channelContext,
             $localeContext,
