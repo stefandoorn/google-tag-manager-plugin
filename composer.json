@@ -65,8 +65,8 @@
             "php bin/create_node_symlink.php"
         ],
         "analyse": "bin/phpstan analyse",
-        "check-style": "bin/ecs check --ansi src/ tests/",
-        "fix-style": "ecs check --ansi src/ tests/ --fix",
+        "check-style": "bin/ecs check --ansi",
+        "fix-style": "ecs check --ansi --fix",
         "phpunit": "bin/phpunit",
         "test": [
             "@phpunit",

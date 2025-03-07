@@ -17,7 +17,7 @@ final class ContextListener
         private GoogleTagManagerInterface $googleTagManager,
         private ChannelContextInterface $channelContext,
         private LocaleContextInterface $localeContext,
-        private CurrencyContextInterface $currencyContext
+        private CurrencyContextInterface $currencyContext,
     ) {
     }
 
