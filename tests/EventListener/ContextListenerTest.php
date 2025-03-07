@@ -15,7 +15,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 final class ContextListenerTest extends TestCase
 {
-    public function testEnvironmentIsAddedToGtmObject()
+    public function testEnvironmentIsAddedToGtmObject(): void
     {
         $currencyContext = $this->getMockBuilder(CurrencyContextInterface::class)->getMock();
         $currencyContext->expects($this->once())->method('getCurrencyCode')->willReturn('EUR');

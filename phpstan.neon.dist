@@ -1,12 +1,13 @@
 parameters:
-    reportUnmatchedIgnoredErrors: true
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false
 
-    excludePaths:
-        - 'src/DependencyInjection/GtmExtension.php'
-        - 'tests/Application/app/**.php'
-        - 'tests/Application/src/**.php'
+    level: max
+
+    paths:
+        - src
+        - tests/Application/src
+        - tests/Behat
+        - tests/EventListener
 
     ignoreErrors:
         - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::children\(\).#'

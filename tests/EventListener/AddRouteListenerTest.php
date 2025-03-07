@@ -12,7 +12,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 final class AddRouteListenerTest extends TestCase
 {
-    public function testAddRouteIsAddedToGtmObject()
+    public function testAddRouteIsAddedToGtmObject(): void
     {
         $request = new Request(['_route' => 'test_route']);
 

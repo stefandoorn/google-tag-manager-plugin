@@ -11,7 +11,7 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManager;
 
 final class EnvironmentListenerTest extends TestCase
 {
-    public function testEnvironmentIsAddedToGtmObject()
+    public function testEnvironmentIsAddedToGtmObject(): void
     {
         $gtm = new GoogleTagManager(true, 'id1234');
         $listener = new EnvironmentListener($gtm, 'test_env');
