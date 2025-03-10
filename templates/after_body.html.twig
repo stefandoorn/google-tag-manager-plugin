@@ -1,1 +1,4 @@
+{% if app.environment starts with 'test' %}
+    <noscript {{ sylius_test_html_attribute('gtm-after-body') }}></noscript>
+{% endif %}
 {{ google_tag_manager_body_end() }}

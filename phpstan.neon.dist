@@ -7,6 +7,7 @@ parameters:
         - src
         - tests/Application/src
         - tests/Behat
-        - tests/EventListener
+        - tests/Unit
+        - tests/Functional
 
     ignoreErrors: []

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\GtmPlugin\EventListener;
+namespace Tests\GtmPlugin\Unit\EventListener;
 
 use GtmPlugin\EventListener\EnvironmentListener;
 use PHPUnit\Framework\TestCase;
