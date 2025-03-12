@@ -13,38 +13,23 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 final class ContextListener
 {
-    private GoogleTagManagerInterface $googleTagManager;
-
-    private ChannelContextInterface $channelContext;
-
-    private LocaleContextInterface $localeContext;
-
-    private CurrencyContextInterface $currencyContext;
-
     public function __construct(
-        GoogleTagManagerInterface $googleTagManager,
-        ChannelContextInterface $channelContext,
-        LocaleContextInterface $localeContext,
-        CurrencyContextInterface $currencyContext
+        private bool $enabled,
+        private GoogleTagManagerInterface $googleTagManager,
+        private ChannelContextInterface $channelContext,
+        private LocaleContextInterface $localeContext,
+        private CurrencyContextInterface $currencyContext,
     ) {
-        $this->googleTagManager = $googleTagManager;
-        $this->channelContext = $channelContext;
-        $this->localeContext = $localeContext;
-        $this->currencyContext = $currencyContext;
     }
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if (method_exists($event, 'isMainRequest')) {
-            if (!$event->isMainRequest()) {
-                return;
-            }
+        if (!$this->enabled) {
+            return;
         }
 
-        if (method_exists($event, 'isMasterRequest')) {
-            if (!$event->isMasterRequest()) {
-                return;
-            }
+        if (!$event->isMainRequest()) {
+            return;
         }
 
         try {
@@ -58,7 +43,8 @@ final class ContextListener
             $this->googleTagManager->setData('locale', $this->localeContext->getLocaleCode());
 
             $this->googleTagManager->setData('currency', $this->currencyContext->getCurrencyCode());
-        } catch (ChannelNotFoundException $e) {
-        } // Channel not found, nothing should happen in here
+        } catch (ChannelNotFoundException) {
+            // Channel wasn't found, nothing should happen in here
+        }
     }
 }

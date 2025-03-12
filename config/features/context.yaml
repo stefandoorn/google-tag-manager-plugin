@@ -1,0 +1,12 @@
+services:
+
+    sylius.google_tag_manager.listener.context:
+        class: GtmPlugin\EventListener\ContextListener
+        arguments:
+            - "%gtm.features.context%"
+            - "@google_tag_manager"
+            - "@sylius.context.channel"
+            - "@sylius.context.locale"
+            - "@sylius.context.currency"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

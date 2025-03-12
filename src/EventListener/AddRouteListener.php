@@ -9,27 +9,22 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 final class AddRouteListener
 {
-    private GoogleTagManagerInterface $googleTagManager;
-
-    public function __construct(GoogleTagManagerInterface $googleTagManager)
-    {
-        $this->googleTagManager = $googleTagManager;
+    public function __construct(
+        private bool $enabled,
+        private GoogleTagManagerInterface $googleTagManager,
+    ) {
     }
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if (method_exists($event, 'isMainRequest')) {
-            if (!$event->isMainRequest()) {
-                return;
-            }
+        if (!$this->enabled) {
+            return;
         }
 
-        if (method_exists($event, 'isMasterRequest')) {
-            if (!$event->isMasterRequest()) {
-                return;
-            }
+        if (!$event->isMainRequest()) {
+            return;
         }
 
-        $this->googleTagManager->setData('route', $event->getRequest()->get('_route'));
+        $this->googleTagManager->setData('route', $event->getRequest()->attributes->get('_route'));
     }
 }

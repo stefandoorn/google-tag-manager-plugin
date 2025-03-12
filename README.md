@@ -13,14 +13,16 @@
 
 ### 1. Composer
 
-`composer require stefandoorn/google-tag-manager-plugin`
+```shell
+composer require stefandoorn/google-tag-manager-plugin
+```
 
 ### 2. Load bundle
 
-Add to the bundle list:
+Add to the bundle list (`config/bundles.php`):
 
 ```php
-new GtmPlugin\GtmPlugin(),
+    GtmPlugin\GtmPlugin::class => ['all' => true],
 ```
 
 ### 3. Follow installation instructions of required sub bundle (https://github.com/xyNNN/GoogleTagManagerBundle)
@@ -59,13 +61,13 @@ Required output to your HTML (head, body & footer) are done through events. Make
 
 You can dump the default configuration using:
 
-```
+```shell
 bin/console config:dump-reference GtmPlugin
 ```
 
 ### 5. Install assets (optional: only if you want to use events feature)
 
-```
+```shell
 bin/console assets:install 
 bin/console sylius:install:assets
 bin/console sylius:theme:assets:install

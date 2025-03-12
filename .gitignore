@@ -2,7 +2,6 @@
 /node_modules/
 /composer.lock
 
-.idea*
 /bin/*
 !/bin/.gitkeep
 !/bin/create_node_symlink.php
@@ -13,8 +12,8 @@
 /tests/Application/yarn.lock
 
 /.phpunit.result.cache
-/behat.yml
 /phpunit.xml
+/phpstan.neon
 /phpspec.yml
-
-/node_modules
+/behat.yml
+/drivers

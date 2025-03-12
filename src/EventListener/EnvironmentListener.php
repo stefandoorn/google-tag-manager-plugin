@@ -9,28 +9,21 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 
 final class EnvironmentListener
 {
-    private GoogleTagManagerInterface $googleTagManager;
-
-    private string $environment;
-
-    public function __construct(GoogleTagManagerInterface $googleTagManager, string $environment)
-    {
-        $this->googleTagManager = $googleTagManager;
-        $this->environment = $environment;
+    public function __construct(
+        private bool $enabled,
+        private GoogleTagManagerInterface $googleTagManager,
+        private string $environment,
+    ) {
     }
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if (method_exists($event, 'isMainRequest')) {
-            if (!$event->isMainRequest()) {
-                return;
-            }
+        if (!$this->enabled) {
+            return;
         }
 
-        if (method_exists($event, 'isMasterRequest')) {
-            if (!$event->isMasterRequest()) {
-                return;
-            }
+        if (!$event->isMainRequest()) {
+            return;
         }
 
         $this->googleTagManager->setData('env', $this->environment);

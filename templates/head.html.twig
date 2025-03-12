@@ -1,0 +1,4 @@
+{% if app.environment starts with 'test' %}
+    <noscript {{ sylius_test_html_attribute('gtm-head') }}></noscript>
+{% endif %}
+{{ google_tag_manager_head() }}

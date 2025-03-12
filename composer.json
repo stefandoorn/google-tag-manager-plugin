@@ -8,27 +8,26 @@
         "sylius-plugin"
     ],
     "require": {
-        "sylius/sylius": "^1.9",
-        "xynnn/google-tag-manager-bundle": "^3.1 || ^4.0"
+        "sylius/sylius": "^2.0",
+        "xynnn/google-tag-manager-bundle": "^3.2 || ^4.0"
     },
     "require-dev": {
-        "lchrusciel/api-test-case": "^5.1",
-        "matthiasnoback/symfony-dependency-injection-test": "^4.3",
-        "phpspec/phpspec": "^7.0",
+        "matthiasnoback/symfony-dependency-injection-test": "^6.0",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "^1.2",
         "phpstan/phpstan-doctrine": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.1",
         "phpstan/phpstan-symfony": "^1.0",
         "phpstan/phpstan-webmozart-assert": "^1.0",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^11.0",
         "sylius-labs/coding-standard": "^4.0",
-        "symfony/browser-kit": "^5.4 || ^6.0",
-        "symfony/debug-bundle": "^5.4 || ^6.0",
-        "symfony/dotenv": "^5.4 || ^6.0",
-        "symfony/intl": "^5.4 || ^6.0",
-        "symfony/web-profiler-bundle": "^5.4 || ^6.0",
-        "vimeo/psalm": "5.8.0"
+        "symfony/browser-kit": "^6.4 || ^7.2",
+        "symfony/css-selector": "^6.4 || ^7.2",
+        "symfony/debug-bundle": "^6.4 || ^7.2",
+        "symfony/dotenv": "^6.4 || ^7.2",
+        "symfony/intl": "^6.4 || ^7.2",
+        "symfony/runtime": "^6.4 || ^7.2",
+        "symfony/web-profiler-bundle": "^6.4 || ^7.2"
     },
     "suggest": {
         "stefandoorn/google-tag-manager-enhanced-ecommerce-plugin": "Integrate Sylius with Google Analytics Enhanced Ecommerce"
@@ -38,7 +37,9 @@
         "bin-dir": "bin",
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": false,
-            "phpstan/extension-installer": false
+            "phpstan/extension-installer": true,
+            "symfony/flex": false,
+            "symfony/runtime": true
         }
     },
     "autoload": {
@@ -64,15 +65,18 @@
         "post-create-project-cmd": [
             "php bin/create_node_symlink.php"
         ],
-        "analyse": "bin/phpstan analyse -c phpstan.neon -l max src",
-        "check-style": "bin/ecs check --ansi src/ tests/",
-        "fix-style": "ecs check --ansi src/ tests/ --fix",
-        "phpspec": "bin/phpspec run --ansi",
+        "analyse": "bin/phpstan analyse",
+        "check-style": "bin/ecs check --ansi",
+        "fix-style": "ecs check --ansi --fix",
         "phpunit": "bin/phpunit",
-        "psalm": "bin/psalm",
         "test": [
-            "@phpunit",
-            "@phpspec"
+            "@phpunit"
         ]
+    },
+    "extra": {
+        "runtime": {
+            "project_dir": "tests/Application",
+            "dotenv_path": "tests/Application/.env"
+        }
     }
 }
