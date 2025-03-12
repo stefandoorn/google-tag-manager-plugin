@@ -74,6 +74,9 @@
         ]
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        },
         "runtime": {
             "project_dir": "tests/Application",
             "dotenv_path": "tests/Application/.env"
