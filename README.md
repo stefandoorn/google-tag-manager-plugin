@@ -52,12 +52,12 @@ In case you set `autoAppend` to false & also disable the `inject` setting inside
 
 In case you set `autoAppend` to false & set `inject` to true, be aware of the following:
 
-Required output to your HTML (head, body & footer) are done through events. Make sure the following 'sonata_block_render_events' are present in your views:
+Required output to your HTML (head, body & footer) are done through Sylius Twig Hooks. The following Sylius Twig Hooks are used:
 
-* `sylius.shop.layout.javascripts`
-* `sylius.shop.layout.head`
-* `sylius.shop.layout.before_body`
-* `sylius.shop.layout.after_body`
+* `sylius_shop.base.head`
+* `sylius_shop.base.header`
+* `sylius_shop.base.offcanvas`
+* `sylius_shop.base#javascripts`
 
 You can dump the default configuration using:
 
