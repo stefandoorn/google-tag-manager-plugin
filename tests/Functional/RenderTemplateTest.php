@@ -6,7 +6,7 @@ namespace Tests\GtmPlugin\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class RenderTemplateTest extends WebTestCase
+final class RenderTemplateTest extends WebTestCase
 {
     public function test_homepage_render_templates(): void
     {
