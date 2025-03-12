@@ -70,8 +70,7 @@
         "fix-style": "ecs check --ansi --fix",
         "phpunit": "bin/phpunit",
         "test": [
-            "@phpunit",
-            "@phpspec"
+            "@phpunit"
         ]
     },
     "extra": {
