@@ -10,8 +10,8 @@ use Xynnn\GoogleTagManagerBundle\Service\GoogleTagManagerInterface;
 final class AddRouteListener
 {
     public function __construct(
-        private bool $enabled,
-        private GoogleTagManagerInterface $googleTagManager,
+        private readonly bool $enabled,
+        private readonly GoogleTagManagerInterface $googleTagManager,
     ) {
     }
 
