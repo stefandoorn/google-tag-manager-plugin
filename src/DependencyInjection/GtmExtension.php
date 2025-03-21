@@ -59,15 +59,13 @@ final class GtmExtension extends Extension implements PrependExtensionInterface
                         'priority' => 1000,
                     ],
                 ],
-                'sylius_shop.base.offcanvas' => [
-                    'gtm' => [
+                'sylius_shop.base#javascripts' => [
+                    'gtm_after_body' => [
                         'template' => '@GtmPlugin/after_body.html.twig',
                         'enabled' => '%gtm.inject%',
                         'priority' => -100,
                     ],
-                ],
-                'sylius_shop.base#javascripts' => [
-                    'gtm' => [
+                    'gtm_events' => [
                         'template' => '@GtmPlugin/events_javascript.html.twig',
                         'enabled' => '%gtm.features.events%',
                         'priority' => -100,
