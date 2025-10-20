@@ -49,7 +49,7 @@ final class GtmExtension extends Extension implements PrependExtensionInterface
                     'gtm' => [
                         'template' => '@GtmPlugin/head.html.twig',
                         'enabled' => '%gtm.inject%',
-                        'priority' => 100,
+                        'priority' => 10000,
                     ],
                 ],
                 'sylius_shop.base.header' => [
