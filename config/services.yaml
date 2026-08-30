@@ -1,2 +1,18 @@
 imports:
     - { resource: features/*.yaml }
+
+services:
+
+    sylius.google_tag_manager.resolver.channel_feature:
+        class: GtmPlugin\Resolver\ChannelFeatureResolver
+        arguments:
+            - "@sylius.context.channel"
+            - "%gtm.features%"
+            - "%gtm.channels%"
+
+    sylius.google_tag_manager.twig.channel:
+        class: GtmPlugin\Twig\GtmChannelExtension
+        arguments:
+            - "@sylius.google_tag_manager.resolver.channel_feature"
+        tags:
+            - { name: twig.extension }

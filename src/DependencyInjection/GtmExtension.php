@@ -24,12 +24,33 @@ final class GtmExtension extends Extension implements PrependExtensionInterface
             $container->setParameter($parameter, $setting);
         }
 
+        $container->setParameter('gtm.features', $config['features']);
+        $container->setParameter('gtm.channels', $this->normaliseChannels($config['channels'] ?? []));
+
         $loader->load('services.yaml');
     }
 
     public function prepend(ContainerBuilder $container): void
     {
         $this->prependSyliusTwigHooks($container);
+    }
+
+    /**
+     * @param array<string, array{id?: ?string, enabled?: ?bool, features?: array<string, bool>}> $channels
+     *
+     * @return array<string, array{id: ?string, enabled: ?bool, features: array<string, bool>}>
+     */
+    private function normaliseChannels(array $channels): array
+    {
+        foreach ($channels as $code => $channel) {
+            $channels[$code] = [
+                'id' => $channel['id'] ?? null,
+                'enabled' => $channel['enabled'] ?? (($channel['id'] ?? null) !== null ? true : null),
+                'features' => $channel['features'] ?? [],
+            ];
+        }
+
+        return $channels;
     }
 
     protected function prependSyliusTwigHooks(ContainerBuilder $container): void

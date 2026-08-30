@@ -1,0 +1,10 @@
+services:
+
+    sylius.google_tag_manager.listener.channels:
+        class: GtmPlugin\EventListener\ChannelGtmListener
+        arguments:
+            - "@google_tag_manager"
+            - "@sylius.context.channel"
+            - "%gtm.channels%"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

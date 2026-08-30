@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GtmPlugin\EventListener;
 
+use GtmPlugin\Resolver\ChannelFeatureResolver;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;
@@ -19,12 +20,17 @@ final class ContextListener
         private readonly ChannelContextInterface $channelContext,
         private readonly LocaleContextInterface $localeContext,
         private readonly CurrencyContextInterface $currencyContext,
+        private readonly ?ChannelFeatureResolver $featureResolver = null,
     ) {
+        if ($this->featureResolver === null) {
+            trigger_error('Not passing a ChannelFeatureResolver to ContextListener is deprecated and it will be required in the next major version.', \E_USER_DEPRECATED);
+        }
     }
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if (!$this->enabled) {
+        $enabled = $this->featureResolver?->isEnabled('context') ?? $this->enabled;
+        if (!$enabled) {
             return;
         }
 

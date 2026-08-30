@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Tests\GtmPlugin\Unit\EventListener;
 
 use GtmPlugin\EventListener\ContextListener;
+use GtmPlugin\Resolver\ChannelFeatureResolver;
 use PHPUnit\Framework\TestCase;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
+use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
@@ -30,6 +32,7 @@ final class ContextListenerTest extends TestCase
         $channelContext->expects($this->once())->method('getChannel')->willReturn($channel);
 
         $gtm = new GoogleTagManager(true, 'id1234');
+        $this->expectUserDeprecationMessage('Not passing a ChannelFeatureResolver to ContextListener is deprecated and it will be required in the next major version.');
         $listener = new ContextListener(
             true,
             $gtm,
@@ -52,5 +55,28 @@ final class ContextListenerTest extends TestCase
         self::assertSame($gtm->getData()['currency'], 'EUR');
         self::assertSame($gtm->getData()['channel']['code'], 'channelCode');
         self::assertSame($gtm->getData()['channel']['name'], 'channelName');
+    }
+
+    public function testResolverDecisionOverridesBoolWhenResolverProvided(): void
+    {
+        $channelContext = $this->createMock(ChannelContextInterface::class);
+        $channelContext->method('getChannel')->willThrowException(new ChannelNotFoundException());
+        $resolver = new ChannelFeatureResolver($channelContext, ['context' => false], []);
+
+        $gtm = new GoogleTagManager(true, 'id1234');
+        $listener = new ContextListener(
+            true,
+            $gtm,
+            $this->createMock(ChannelContextInterface::class),
+            $this->createMock(LocaleContextInterface::class),
+            $this->createMock(CurrencyContextInterface::class),
+            $resolver,
+        );
+
+        $mock = $this->getMockBuilder(RequestEvent::class)->disableOriginalConstructor()->getMock();
+        $mock->method('isMainRequest')->willReturn(true);
+        $listener->onKernelRequest($mock);
+
+        self::assertSame([], $gtm->getData());
     }
 }

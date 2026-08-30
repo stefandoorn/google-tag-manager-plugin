@@ -6,5 +6,6 @@ services:
             - "%gtm.features.environment%"
             - "@google_tag_manager"
             - "%kernel.environment%"
+            - "@sylius.google_tag_manager.resolver.channel_feature"
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

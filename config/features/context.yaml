@@ -8,5 +8,6 @@ services:
             - "@sylius.context.channel"
             - "@sylius.context.locale"
             - "@sylius.context.currency"
+            - "@sylius.google_tag_manager.resolver.channel_feature"
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

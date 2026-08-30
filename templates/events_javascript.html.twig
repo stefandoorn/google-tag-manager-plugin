@@ -1,1 +1,3 @@
+{% if gtm_channel_allows('events') %}
 <script src="{{ asset('bundles/gtmplugin/prototype.events.js') }}" {{ sylius_test_html_attribute('gtm-events-javascript') }}></script>
+{% endif %}

@@ -5,3 +5,8 @@ gtm:
         route: true
         context: true
         events: true
+    channels:
+        FASHION_WEB:
+            id: "GTM-FASHION"
+        BUSINESS_WEB:
+            enabled: false
